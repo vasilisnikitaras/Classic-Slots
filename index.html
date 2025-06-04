@@ -1,67 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classic Slots</title>
+<script src="public/script.js"></script>
 
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
 </head>
 <body>
+
   <div class="slot-machine">
     <div class="header">
       <h1>Classic Slots</h1>
       <p class="balance">Balance: $1000</p>
     </div>
-    
     <div class="reels-container">
       <div class="reel">
         <div class="symbol">🍒</div>
+        <div class="symbol">🔔</div>
         <div class="symbol">🍋</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍉</div>
-        <div class="symbol">⭐</div>
-        <div class="symbol">🍊</div>
-      </div>
-      <div class="reel">
-        <div class="symbol">🍓</div>
-        <div class="symbol">🍍</div>
-        <div class="symbol">7️⃣</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍈</div>
-        <div class="symbol">🍒</div>
       </div>
       <div class="reel">
         <div class="symbol">🍒</div>
         <div class="symbol">🔔</div>
-        <div class="symbol">🍉</div>
-        <div class="symbol">⭐</div>
-        <div class="symbol">🍊</div>
+        <div class="symbol">🍋</div>
+      </div>
+      <div class="reel">
+        <div class="symbol">🍒</div>
+        <div class="symbol">🔔</div>
         <div class="symbol">🍋</div>
       </div>
     </div>
-
     <div class="controls">
-      <button id="spin-btn" class="btn btn-primary">SPIN</button>
-
-      <p id="win-message" style="font-size: 22px; font-weight: bold; color: gold; text-align: center; display: none;">
-        🎉 You Won!! 🎉
-      </p>
-      <p id="try-again-message" style="text-align: center; display: none; font-size: 18px;">
-        ❌ Try Again!
-      </p>
+      <button class="btn btn-primary spin_btn">SPIN</button>
+      <p class="message">Good Luck!</p>
+        
+        <br>
+        
+        <div>
+      <footer>
+        <p>© 2024 [Created by Vasileios.Nikitaras]. All rights reserved.</p>
+      </footer>
     </div>
-
-    <footer>
-      <p>© 2024 [Created by Vasileios Nikitaras]. All rights reserved.</p>
-      <p id="bottom-win-message" style="font-size: 24px; font-weight: bold; color: gold; text-align: center; display: none;">
-        🎰 You Won at Classic Slots!! 🎰
-      </p>
-    </footer>
+        
+        
+        
+    </div>
 
     <audio id="reelSound" src="https://essykings.github.io/JavaScript/wheel.wav"></audio>
     <audio id="winSound" src="https://essykings.github.io/JavaScript/payout.mp3"></audio>
   </div>
+  <script src="script.js"></script>
+<!--
+  <footer>
+    <button onclick="window.location.href='https://vasilisnikitaras.github.io/vasilis-portfolio/'">
+    Back to Home
+</button>
+  </footer>
+  -- >
 </body>
 </html>
