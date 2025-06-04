@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const reels = document.querySelectorAll(".reel");
   const spinButton = document.querySelector(".spin_btn");
   const messageDisplay = document.querySelector(".message");
+  const winMessage = document.getElementById("win-message"); // Winning message element
+  const tryAgainMessage = document.getElementById("try-again-message"); // Losing message element
   const reelSound = document.getElementById("reelSound");
   const winSound = document.getElementById("winSound");
   const balanceDisplay = document.querySelector(".balance");
@@ -47,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     reelSound.play();
     messageDisplay.textContent = "Spinning.........";
 
+    // Hide messages before spinning starts
+    winMessage.style.display = "none";
+    tryAgainMessage.style.display = "none";
+
     reels.forEach((reel, index) => {
       setTimeout(() => {
         spinReel(reel, index);
@@ -89,9 +95,18 @@ document.addEventListener("DOMContentLoaded", function () {
       balance += payout;
       winSound.play();
       messageDisplay.textContent = "You Win!";
+      
+      // ✅ Ensure "You Won!!" appears below the SPIN button
+      winMessage.style.display = "block";
+      tryAgainMessage.style.display = "none";
     } else {
       messageDisplay.textContent = "Try Again";
+      
+      // ✅ Ensure "Try Again" appears when losing
+      winMessage.style.display = "none";
+      tryAgainMessage.style.display = "block";
     }
+
     updateBalanceDisplay();
   }
 
