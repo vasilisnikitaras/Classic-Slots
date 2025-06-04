@@ -6,7 +6,7 @@
   <title>Classic Slots</title>
 
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script> <!-- Ensures JS loads after HTML -->
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="slot-machine">
@@ -15,32 +15,17 @@
       <p class="balance">Balance: $1000</p>
     </div>
     <div class="reels-container">
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
+      <div class="reel"><div class="symbol">🍒</div></div>
+      <div class="reel"><div class="symbol">🔔</div></div>
+      <div class="reel"><div class="symbol">🍋</div></div>
     </div>
 
     <div class="controls">
-      <button id="spin-btn" class="btn btn-primary">SPIN</button> <!-- Fix button ID -->
-      
-      <!-- Winning message -->
+      <button id="spin-btn" class="btn btn-primary">SPIN</button>
+
       <p id="win-message" style="font-size: 22px; font-weight: bold; color: gold; text-align: center; display: none;">
         🎉 You Won!! 🎉
       </p>
-
-      <!-- Unsuccessful spin message -->
       <p id="try-again-message" style="text-align: center; display: none; font-size: 18px;">
         ❌ Try Again!
       </p>
