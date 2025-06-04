@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classic Slots</title>
-<script src="public/script.js"></script>
-
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
-
+  <script src="public/script.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -18,6 +15,7 @@
       <h1>Classic Slots</h1>
       <p class="balance">Balance: $1000</p>
     </div>
+
     <div class="reels-container">
       <div class="reel">
         <div class="symbol">🍒</div>
@@ -35,32 +33,25 @@
         <div class="symbol">🍋</div>
       </div>
     </div>
+
     <div class="controls">
       <button class="btn btn-primary spin_btn">SPIN</button>
       <p class="message">Good Luck!</p>
-        
-        <br>
-        
-        <div>
-      <footer>
-        <p>© 2024 [Created by Vasileios.Nikitaras]. All rights reserved.</p>
-      </footer>
-    </div>
-        
-        
-        
+      <br>
     </div>
 
     <audio id="reelSound" src="https://essykings.github.io/JavaScript/wheel.wav"></audio>
     <audio id="winSound" src="https://essykings.github.io/JavaScript/payout.mp3"></audio>
+
+    <footer>
+      <p>© 2024 [Created by Vasileios Nikitaras]. All rights reserved.</p>
+      <button id="win-button" onclick="alert('🎉 You Won!! 🎉')">
+        🎰 You Won! Click Here! 🎰
+      </button>
+    </footer>
+
   </div>
+
   <script src="script.js"></script>
-<!--
-  <footer>
-    <button onclick="window.location.href='https://vasilisnikitaras.github.io/vasilis-portfolio/'">
-    Back to Home
-</button>
-  </footer>
-  -- >
 </body>
 </html>
