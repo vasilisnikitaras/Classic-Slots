@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const reels = document.querySelectorAll(".reel");
-    const spinButton = document.getElementById("spin-btn"); // Correct button ID
+    const spinButton = document.getElementById("spin-btn");
     const winMessage = document.getElementById("win-message");
     const tryAgainMessage = document.getElementById("try-again-message");
     const reelSound = document.getElementById("reelSound");
