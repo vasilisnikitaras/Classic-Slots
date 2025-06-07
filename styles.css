@@ -12,7 +12,25 @@ body {
   color: #ffffff; /* Ensures readability */
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 5%; /* Ensures it's above the header */
+    left: 50%;
+    transform: translate(-50%, -5%);
+    background: rgba(255, 204, 0, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 999;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+
 /* Win Pop-Up Styling - Positioned Above Header */
+/*
 .popup {
   display: none;
   position: fixed;
@@ -26,7 +44,7 @@ body {
   text-align: center;
   animation: fadeIn 0.5s ease-in-out;
 }
-
+*/
 .popup p {
   font-size: 2em;
   font-weight: bold;
