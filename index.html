@@ -10,6 +10,12 @@
 </head>
 <body>
 
+  <!-- WIN POP-UP ABOVE HEADER -->
+  <div id="win-popup" class="popup">
+    <p>🎉 You Won!! 🎉</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
   <div class="slot-machine">
     <div class="header">
       <h1>Classic Slots</h1>
@@ -30,12 +36,6 @@
 
     <audio id="reelSound" src="https://essykings.github.io/JavaScript/wheel.wav"></audio>
     <audio id="winSound" src="https://essykings.github.io/JavaScript/payout.mp3"></audio>
-
-    <!-- WIN POP-UP -->
-    <div id="win-popup" class="popup">
-      <p>🎉 You Won!! 🎉</p>
-      <button onclick="closePopup()">OK</button>
-    </div>
 
   </div>
 
@@ -69,17 +69,24 @@
   </script>
 
   <style>
+    /* Updated Pop-Up Position */
     .popup {
       display: none;
       position: fixed;
-      top: 50%;
+      top: 10%; /* Moves pop-up to the top */
       left: 50%;
-      transform: translate(-50%, -50%);
-      background: #ffcc00;
+      transform: translate(-50%, -10%);
+      background: rgba(255, 204, 0, 0.95);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
       text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 
