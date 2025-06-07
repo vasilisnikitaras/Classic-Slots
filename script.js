@@ -102,12 +102,15 @@ document.addEventListener("DOMContentLoaded", function () {
     updateBalanceDisplay();
   }
 
-  function showPopup() {
+ function showPopup() {
     winPopup.style.display = "block";
-    winPopup.style.top = "5%";
     winPopup.style.opacity = "1";
-    winPopup.style.animation = "fadeIn 0.5s ease-in-out";
-  }
+
+    setTimeout(() => {
+        closePopup();
+    }, 5000); // Automatically hides pop-up after 5 seconds
+}
+
 
  function closePopup() {
     winPopup.style.display = "none"; 
