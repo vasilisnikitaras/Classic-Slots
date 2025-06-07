@@ -4,11 +4,53 @@
 body {
   background: #181818; /* Slightly lighter than pure black for better contrast */
   display: flex;
+  flex-direction: column; /* Ensures content stacks properly */
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures it works well on smaller screens */
+  min-height: 100vh; /* Works across different screen sizes */
   font-family: "DM Mono", monospace;
   color: #ffffff; /* Ensures readability */
+}
+
+/* Win Pop-Up Styling - Positioned Above Header */
+.popup {
+  display: none;
+  position: fixed;
+  top: 5%; /* Moves pop-up to the top */
+  left: 50%;
+  transform: translate(-50%, -5%);
+  background: rgba(255, 204, 0, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.popup p {
+  font-size: 2em;
+  font-weight: bold;
+  color: #222;
+}
+
+.popup button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  background: #222;
+  color: #ffcc00;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup button:hover {
+  background: #333;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Slot Machine Container */
@@ -44,9 +86,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  flex-wrap: wrap;
 }
 
+/* Reel Design */
 .reel {
   width: 130px;
   height: 210px;
@@ -69,6 +112,7 @@ body {
   background: rgba(255,255,255,0.3);
 }
 
+/* Symbols */
 .symbol {
   font-size: 3.5em;
   height: 1.5em;
@@ -95,42 +139,12 @@ body {
   color: #ffcc00;
 }
 
-/* Win Pop-Up Styling */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 204, 0, 0.95);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.popup p {
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-.popup button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  font-size: 1.2em;
-  background: #222;
-  color: #ffcc00;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.popup button:hover {
-  background: #333;
-}
-
 /* Responsive Design */
 @media (max-width: 600px) {
+  .popup {
+    top: 3%; /* Adjust pop-up for small screens */
+    transform: translate(-50%, -3%);
+  }
   .header h1 {
     font-size: 4em;
   }
