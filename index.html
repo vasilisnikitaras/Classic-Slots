@@ -13,29 +13,17 @@
   <div class="slot-machine">
     <div class="header">
       <h1>Classic Slots</h1>
-      <p class="balance">Balance: $1000</p>
+      <p class="balance" id="balance">Balance: $1000</p>
     </div>
 
     <div class="reels-container">
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
-      <div class="reel">
-        <div class="symbol">🍒</div>
-        <div class="symbol">🔔</div>
-        <div class="symbol">🍋</div>
-      </div>
+      <div class="reel"><div class="symbol">🍒</div><div class="symbol">🔔</div><div class="symbol">🍋</div></div>
+      <div class="reel"><div class="symbol">🍒</div><div class="symbol">🔔</div><div class="symbol">🍋</div></div>
+      <div class="reel"><div class="symbol">🍒</div><div class="symbol">🔔</div><div class="symbol">🍋</div></div>
     </div>
 
     <div class="controls">
-      <button class="btn btn-primary spin_btn">SPIN</button>
+      <button class="btn btn-primary spin_btn" onclick="spinReels()">SPIN</button>
       <p class="message">Good Luck!</p>
       <br>
     </div>
@@ -43,22 +31,57 @@
     <audio id="reelSound" src="https://essykings.github.io/JavaScript/wheel.wav"></audio>
     <audio id="winSound" src="https://essykings.github.io/JavaScript/payout.mp3"></audio>
 
+    <!-- WIN POP-UP -->
+    <div id="win-popup" class="popup">
+      <p>🎉 You Won!! 🎉</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
 
-
-     <button id="win-button" onclick="alert('🎉 You Won!! 🎉')">
-        🎰 You Won! Click Here! 🎰
-      </button>
-
-   <!--  <footer>
-       <button id="win-button" onclick="alert('🎉 You Won!! 🎉')">
-        🎰 You Won! Click Here! 🎰
-      </button>
-      <p>© 2024 [Created by Vasileios Nikitaras]. All rights reserved.</p>
-     
-    </footer>
-      -->
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function spinReels() {
+      document.getElementById("reelSound").play(); // Play reel sound
+      
+      // Example win condition (modify as needed)
+      const winCondition = Math.random() > 0.8; // 20% chance to win
+
+      if (winCondition) {
+        showPopup();
+        document.getElementById("winSound").play();
+        updateBalance(100); // Example: Add winnings
+      }
+    }
+
+    function showPopup() {
+      document.getElementById("win-popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("win-popup").style.display = "none";
+    }
+
+    function updateBalance(amount) {
+      let balanceElem = document.getElementById("balance");
+      let currentBalance = parseInt(balanceElem.innerText.replace("Balance: $", ""));
+      balanceElem.innerText = `Balance: $${currentBalance + amount}`;
+    }
+  </script>
+
+  <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffcc00;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+  </style>
+
 </body>
 </html>
