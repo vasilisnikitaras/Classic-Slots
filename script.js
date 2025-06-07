@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const reelSound = document.getElementById("reelSound");
   const winSound = document.getElementById("winSound");
   const balanceDisplay = document.querySelector(".balance");
+  const winPopup = document.getElementById("win-popup");
 
-  if (!reels.length || !spinButton || !messageDisplay || !balanceDisplay) {
-    console.error("Missing elements in HTML. Check .reel, .spin_btn, .message, .balance classes.");
+  if (!reels.length || !spinButton || !messageDisplay || !balanceDisplay || !winPopup) {
+    console.error("Missing elements in HTML. Check .reel, .spin_btn, .message, .balance, and win-popup.");
     return;
   }
 
@@ -88,11 +89,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const payout = betAmount * 5;
       balance += payout;
       winSound.play();
-      messageDisplay.textContent = "You Win!";
+      messageDisplay.textContent = "🎉 You Win! 🎉";
+      showPopup();
     } else {
       messageDisplay.textContent = "Try Again";
     }
     updateBalanceDisplay();
+  }
+
+  function showPopup() {
+    winPopup.style.display = "block";
+  }
+
+  function closePopup() {
+    winPopup.style.display = "none";
   }
 
   updateBalanceDisplay();
