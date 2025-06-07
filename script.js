@@ -45,13 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (spinning) return;
     spinning = true;
     reelSound.play();
-    messageDisplay.textContent = "Spinning.........";
+    messageDisplay.textContent = "Spinning...";
 
     reels.forEach((reel, index) => {
-      setTimeout(() => {
-        spinReel(reel, index);
-      }, index * 500);
+        setTimeout(() => {
+            spinReel(reel, index);
+        }, index * 500);
     });
+
+    setTimeout(() => {
+        checkWin();
+    }, reels.length * 600);
   }
 
   function spinReel(reel, index) {
@@ -81,31 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 50 + index * 50);
   }
 
- 
-  
   function checkWin() {
-    const [reel1, reel2, reel3] = reelStates.map((reel) => reel[0]);
+    spinning = false; 
 
-    if (reel1 === reel2 && reel2 === reel3) {
-        const payout = betAmount * 5;
-        balance += payout;
-        winSound.play();
-        messageDisplay.textContent = "🎉 You Win! 🎉";
-
-        setTimeout(() => { 
-            showPopup();
-        }, 300); // Slight delay for smoother animation
-    } else {
-        messageDisplay.textContent = "Try Again";
-    }
-    updateBalanceDisplay();
-}
-
-  
-  
-  
-  /*
-  function checkWin() {
     const [reel1, reel2, reel3] = reelStates.map((reel) => reel[0]);
 
     if (reel1 === reel2 && reel2 === reel3) {
@@ -113,29 +95,20 @@ document.addEventListener("DOMContentLoaded", function () {
       balance += payout;
       winSound.play();
       messageDisplay.textContent = "🎉 You Win! 🎉";
-      showPopup();
+      setTimeout(() => { showPopup(); }, 500);
     } else {
       messageDisplay.textContent = "Try Again";
     }
     updateBalanceDisplay();
   }
-*/
-function showPopup() {
-    winPopup.style.display = "block";
-    winPopup.style.zIndex = "100"; // Keeps it on top of everything
-    winPopup.style.opacity = "1"; // Ensures full visibility
-    winPopup.style.animation = "fadeIn 0.5s ease-in-out";
-}
 
-
-
-  
-/*
   function showPopup() {
     winPopup.style.display = "block";
-    winPopup.style.top = "5%"; // Moves pop-up above the header
+    winPopup.style.top = "5%";
+    winPopup.style.opacity = "1";
+    winPopup.style.animation = "fadeIn 0.5s ease-in-out";
   }
-*/
+
   function closePopup() {
     winPopup.style.display = "none";
   }
