@@ -81,6 +81,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 50 + index * 50);
   }
 
+ 
+  
+  function checkWin() {
+    const [reel1, reel2, reel3] = reelStates.map((reel) => reel[0]);
+
+    if (reel1 === reel2 && reel2 === reel3) {
+        const payout = betAmount * 5;
+        balance += payout;
+        winSound.play();
+        messageDisplay.textContent = "🎉 You Win! 🎉";
+
+        setTimeout(() => { 
+            showPopup();
+        }, 300); // Slight delay for smoother animation
+    } else {
+        messageDisplay.textContent = "Try Again";
+    }
+    updateBalanceDisplay();
+}
+
+  
+  
+  
+  /*
   function checkWin() {
     const [reel1, reel2, reel3] = reelStates.map((reel) => reel[0]);
 
@@ -95,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     updateBalanceDisplay();
   }
-
+*/
 function showPopup() {
     winPopup.style.display = "block";
     winPopup.style.zIndex = "100"; // Keeps it on top of everything
