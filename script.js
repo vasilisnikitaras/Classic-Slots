@@ -96,11 +96,22 @@ document.addEventListener("DOMContentLoaded", function () {
     updateBalanceDisplay();
   }
 
+function showPopup() {
+    winPopup.style.display = "block";
+    winPopup.style.zIndex = "100"; // Keeps it on top of everything
+    winPopup.style.opacity = "1"; // Ensures full visibility
+    winPopup.style.animation = "fadeIn 0.5s ease-in-out";
+}
+
+
+
+  
+/*
   function showPopup() {
     winPopup.style.display = "block";
     winPopup.style.top = "5%"; // Moves pop-up above the header
   }
-
+*/
   function closePopup() {
     winPopup.style.display = "none";
   }
