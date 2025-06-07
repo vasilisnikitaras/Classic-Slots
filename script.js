@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   spinButton.addEventListener("click", function () {
-    console.log("Spin button clicked!");
     placeBet();
   });
 
@@ -99,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showPopup() {
     winPopup.style.display = "block";
+    winPopup.style.top = "5%"; // Moves pop-up above the header
   }
 
   function closePopup() {
