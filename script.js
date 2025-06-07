@@ -113,11 +113,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000); // Automatically hides pop-up after 5 seconds
   }
 
-  function closePopup() {
-    winPopup.style.display = "none"; 
+function closePopup() {
+    winPopup.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
     winPopup.style.opacity = "0"; 
-    winPopup.style.pointerEvents = "none"; // Prevents blocking other elements
-  }
+
+    setTimeout(() => {
+        winPopup.style.display = "none"; // Completely hide it after fading out
+    }, 500); 
+}
+
 
   winButton.addEventListener("click", closePopup); // Allows clicking to close
 
