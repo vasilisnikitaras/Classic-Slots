@@ -109,9 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
     winPopup.style.animation = "fadeIn 0.5s ease-in-out";
   }
 
-  function closePopup() {
-    winPopup.style.display = "none";
-  }
+ function closePopup() {
+    winPopup.style.display = "none"; 
+    winPopup.style.opacity = "0"; // Ensures it fades out completely
+}
+
 
   updateBalanceDisplay();
 });
