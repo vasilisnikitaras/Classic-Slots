@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const winSound = document.getElementById("winSound");
   const balanceDisplay = document.querySelector(".balance");
   const winPopup = document.getElementById("win-popup");
+  const winButton = document.querySelector("#win-popup button"); // Make sure button responds
 
-  if (!reels.length || !spinButton || !messageDisplay || !balanceDisplay || !winPopup) {
-    console.error("Missing elements in HTML. Check .reel, .spin_btn, .message, .balance, and win-popup.");
+  if (!reels.length || !spinButton || !messageDisplay || !balanceDisplay || !winPopup || !winButton) {
+    console.error("Missing elements in HTML. Check .reel, .spin_btn, .message, .balance, win-popup, and button.");
     return;
   }
 
@@ -102,21 +103,23 @@ document.addEventListener("DOMContentLoaded", function () {
     updateBalanceDisplay();
   }
 
- function showPopup() {
+  function showPopup() {
     winPopup.style.display = "block";
     winPopup.style.opacity = "1";
+    winPopup.style.pointerEvents = "auto"; // Ensures it's clickable
 
     setTimeout(() => {
         closePopup();
     }, 5000); // Automatically hides pop-up after 5 seconds
-}
+  }
 
-
- function closePopup() {
+  function closePopup() {
     winPopup.style.display = "none"; 
-    winPopup.style.opacity = "0"; // Ensures it fades out completely
-}
+    winPopup.style.opacity = "0"; 
+    winPopup.style.pointerEvents = "none"; // Prevents blocking other elements
+  }
 
+  winButton.addEventListener("click", closePopup); // Allows clicking to close
 
   updateBalanceDisplay();
 });
