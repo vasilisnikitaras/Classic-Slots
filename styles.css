@@ -1,54 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
 body {
-  background: #121212;
-  background: ligt;
+  background: #181818; /* Slightly lighter than pure black for better contrast */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Ensures it works well on smaller screens */
   font-family: "DM Mono", monospace;
+  color: #ffffff; /* Ensures readability */
 }
 
+/* Slot Machine Container */
 .slot-machine {
   text-align: center;
 }
+
+/* Header Styling */
 .header {
   margin-bottom: 20px;
   padding: 10px;
 }
+
 .header h1 {
   font-family: "Ultra", serif;
-  font-size: 6em;
+  font-size: 5em;
   line-height: .9;
-  margin: 0;
-  color: #ebb701;
-  max-width: 10ch;
+  margin: 0 auto;
+  color: #ffcc00; /* More vibrant golden color */
+  max-width: 12ch;
+  text-shadow: 3px 3px 10px rgba(255, 204, 0, 0.8);
 }
+
 .header p {
   font-size: 1.2em;
   margin-top: 10px;
-  color: white;
+  color: #eeeeee;
 }
+
+/* Reels Container */
 .reels-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60%;
+  gap: 15px;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
 }
+
 .reel {
-  display: block;
   width: 130px;
   height: 210px;
   background-color: #3a3a3a;
   border-radius: 15px;
   overflow: hidden;
-  margin: 0 10px;
-  box-shadow: 0px 14px 15px -5px rgba(0,0,0,0.3) inset,
-    1px -14px 15px -5px rgba(0,0,0,0.3) inset;
-  border: 2px solid rgba(255,255,255,0.2);
   position: relative;
+  margin: 10px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.5), inset 0px 5px 10px rgba(255,255,255,0.1);
+  border: 3px solid rgba(255,255,255,0.3);
 }
 
 .reel::before {
@@ -56,23 +64,85 @@ body {
   display: block;
   position: absolute;
   top: 50%;
-  z-index: 100;
   width: 100%;
   height: 2px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.3);
 }
 
 .symbol {
-  font-size: 3em;
+  font-size: 3.5em;
   height: 1.5em;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
+/* Controls */
 .controls .btn {
-  margin: 3em 0 1em 0;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(255, 204, 0, 0.3);
+}
+
+.controls .btn:hover {
+  background: #ff9900;
 }
 
 .controls .message {
   font-size: 1.5em;
-  color: #ebb701;
+  color: #ffcc00;
+}
+
+/* Win Pop-Up Styling */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 204, 0, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.popup p {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.popup button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  background: #222;
+  color: #ffcc00;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup button:hover {
+  background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 4em;
+  }
+  .reel {
+    width: 100px;
+    height: 160px;
+  }
+  .symbol {
+    font-size: 3em;
+  }
+  .controls .btn {
+    font-size: 1em;
+    padding: 8px 15px;
+  }
 }
